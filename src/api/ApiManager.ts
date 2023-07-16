@@ -1,5 +1,5 @@
 import { IAppDef } from '../containers/apps/AppDefinition'
-import { ICaptainDefinition } from '../models/ICaptainDefinition'
+import { IAthenaDefinition } from '../models/IAthenaDefinition'
 import {
     IProConfig,
     IProFeatures,
@@ -85,9 +85,9 @@ export default class ApiManager {
                 // Upon wrong password or back-off error, we force logout the user
                 // to avoid getting stuck with wrong password loop
                 if (
-                    error.captainStatus + '' ===
+                    error.athenaStatus + '' ===
                         ErrorFactory.STATUS_PASSWORD_BACK_OFF + '' ||
-                    error.captainStatus + '' ===
+                    error.athenaStatus + '' ===
                         ErrorFactory.STATUS_WRONG_PASSWORD + ''
                 ) {
                     self.setAuthToken('')
@@ -143,7 +143,7 @@ export default class ApiManager {
             .then(http.fetch(http.POST, '/user/pro/otp', data))
     }
 
-    getCaptainInfo() {
+    getAthenaInfo() {
         const http = this.http
 
         return Promise.resolve() //
@@ -221,9 +221,9 @@ export default class ApiManager {
             )
     }
 
-    uploadCaptainDefinitionContent(
+    uploadAthenaDefinitionContent(
         appName: string,
-        captainDefinition: ICaptainDefinition,
+        athenaDefinition: IAthenaDefinition,
         gitHash: string,
         detached: boolean
     ) {
@@ -237,8 +237,8 @@ export default class ApiManager {
                         detached ? '?detached=1' : ''
                     }`,
                     {
-                        captainDefinitionContent:
-                            JSON.stringify(captainDefinition),
+                        athenaDefinitionContent:
+                            JSON.stringify(athenaDefinition),
                         gitHash,
                     }
                 )
@@ -247,8 +247,8 @@ export default class ApiManager {
 
     updateConfigAndSave(appName: string, appDefinition: IAppDef) {
         let instanceCount = appDefinition.instanceCount
-        let captainDefinitionRelativeFilePath =
-            appDefinition.captainDefinitionRelativeFilePath
+        let athenaDefinitionRelativeFilePath =
+            appDefinition.athenaDefinitionRelativeFilePath
         let envVars = appDefinition.envVars
         let notExposeAsWebApp = appDefinition.notExposeAsWebApp
         let forceSsl = appDefinition.forceSsl
@@ -273,8 +273,8 @@ export default class ApiManager {
                 http.fetch(http.POST, '/user/apps/appDefinitions/update', {
                     appName: appName,
                     instanceCount: instanceCount,
-                    captainDefinitionRelativeFilePath:
-                        captainDefinitionRelativeFilePath,
+                    athenaDefinitionRelativeFilePath:
+                        athenaDefinitionRelativeFilePath,
                     notExposeAsWebApp: notExposeAsWebApp,
                     forceSsl: forceSsl,
                     websocketSupport: websocketSupport,
@@ -476,14 +476,14 @@ export default class ApiManager {
             .then(http.fetch(http.GET, '/user/system/nginxconfig', {}))
     }
 
-    setNginxConfig(customBase: string, customCaptain: string) {
+    setNginxConfig(customBase: string, customAthena: string) {
         const http = this.http
 
         return Promise.resolve() //
             .then(
                 http.fetch(http.POST, '/user/system/nginxconfig', {
                     baseConfig: { customValue: customBase },
-                    captainConfig: { customValue: customCaptain },
+                    athenaConfig: { customValue: customAthena },
                 })
             )
     }
@@ -658,7 +658,7 @@ export default class ApiManager {
         remoteNodeIpAddress: string,
         sshPort: string,
         sshUser: string,
-        captainIpAddress: string
+        athenaIpAddress: string
     ) {
         const http = this.http
 
@@ -670,7 +670,7 @@ export default class ApiManager {
                     remoteNodeIpAddress,
                     sshPort,
                     sshUser,
-                    captainIpAddress,
+                    athenaIpAddress,
                 })
             )
     }

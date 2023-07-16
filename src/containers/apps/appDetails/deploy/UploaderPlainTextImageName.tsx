@@ -1,4 +1,4 @@
-import { ICaptainDefinition } from '../../../../models/ICaptainDefinition'
+import { IAthenaDefinition } from '../../../../models/IAthenaDefinition'
 import UploaderPlainTextBase from './UploaderPlainTextBase'
 
 export default class UploaderPlainTextImageName extends UploaderPlainTextBase {
@@ -10,8 +10,8 @@ export default class UploaderPlainTextImageName extends UploaderPlainTextBase {
         return true
     }
 
-    protected convertDataToCaptainDefinition(userEnteredValue: string) {
-        const capDefinition: ICaptainDefinition = {
+    protected convertDataToAthenaDefinition(userEnteredValue: string) {
+        const capDefinition: IAthenaDefinition = {
             schemaVersion: 2,
             imageName: userEnteredValue.trim(),
         }

@@ -6,7 +6,7 @@ import Toaster from '../../utils/Toaster'
 import ApiComponent from '../global/ApiComponent'
 import CenteredSpinner from '../global/CenteredSpinner'
 import ErrorRetry from '../global/ErrorRetry'
-import ReloadCaptainModal from './ReloadCaptainModal'
+import ReloadAthenaModal from './ReloadAthenaModal'
 
 export default class CheckUpdate extends ApiComponent<
     {
@@ -72,11 +72,11 @@ export default class CheckUpdate extends ApiComponent<
         return (
             <div>
                 <p>
-                    CapRover allows in-place updates to be installed. However,
-                    always read the change logs before updating your CapRover.
+                    Athena allows in-place updates to be installed. However,
+                    always read the change logs before updating your Athena.
                     There might be breaking changes that you need to be aware
                     of. The update usually takes around 60 seconds and your
-                    CapRover may become unresponsive until the update process is
+                    Athena may become unresponsive until the update process is
                     finished. Your apps will stay functional and responsive
                     during this time, except for a very short period of 10
                     seconds or less.
@@ -116,12 +116,12 @@ export default class CheckUpdate extends ApiComponent<
 
                 <div className={!versionInfo.canUpdate ? '' : 'hide-on-demand'}>
                     <Alert
-                        message="Your CapRover is the latest version."
+                        message="Your Athena is the latest version."
                         type="info"
                     />
                 </div>
 
-                <ReloadCaptainModal
+                <ReloadAthenaModal
                     isRefreshTimerActivated={self.state.isRefreshTimerActivated}
                 >
                     <div>
@@ -130,7 +130,7 @@ export default class CheckUpdate extends ApiComponent<
                             your server connection speed.
                         </p>
                         <p>
-                            Your CapRover dashboard is not functional during the
+                            Your Athena dashboard is not functional during the
                             update. Please wait until this page is refreshed
                             automatically.
                         </p>
@@ -142,7 +142,7 @@ export default class CheckUpdate extends ApiComponent<
                         <br />
                         <br />
                     </div>
-                </ReloadCaptainModal>
+                </ReloadAthenaModal>
             </div>
         )
     }

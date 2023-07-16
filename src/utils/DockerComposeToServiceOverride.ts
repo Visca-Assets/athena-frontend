@@ -5,8 +5,8 @@ import Utils from './Utils'
 export default class DockerComposeToServiceOverride {
     static convertComposeToService(compose: IDockerComposeService) {
         // NOTE:
-        // Port, replicas, env vars, volumes, and image are supplied through CapRover definition
-        // network will be set to captain-overlay
+        // Port, replicas, env vars, volumes, and image are supplied through Athena definition
+        // network will be set to athena-overlay
         // restart_policy is not generally needed, by default docker services restart automatically
         // ----
         // Only parse parameters that are not from the aforementioned list.

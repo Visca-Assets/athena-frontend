@@ -68,7 +68,7 @@ interface IAppDefinitionBase {
         password?: string
         passwordHashed?: string
     }
-    captainDefinitionRelativeFilePath: string
+    athenaDefinitionRelativeFilePath: string
 
     forceSsl: boolean
     websocketSupport: boolean

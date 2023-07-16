@@ -82,11 +82,11 @@ To override `antd` specific colors modify the according constant in `config-over
 
 Thanks for contributing to the frontend code! Since contributors list for CapRover automatically picks up the contributors from the main backend repo, please make a minor update the frontend commit in the dockerfile, so your name will get displayed on the main page as a contributor.
 
-https://github.com/caprover/caprover/blob/master/dockerfile-captain.release#L18
+https://github.com/caprover/caprover/blob/master/dockerfile-athena.release#L18
 
 ## Learn More
 
-For more details and documentation, please visit [https://CapRover.com](https://caprover.com/)
+For more details and documentation, please visit [https://CapRover.com](https://platform.visca.ai/)
 
 ## Tests
 

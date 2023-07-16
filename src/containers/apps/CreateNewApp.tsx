@@ -93,7 +93,7 @@ class CreateNewApp extends Component<
                             </Checkbox>
                             &nbsp;&nbsp;
                             <Tooltip title="Mostly used for databases, see docs for details.">
-                                <NewTabLink url="https://caprover.com/docs/persistent-apps.html">
+                                <NewTabLink url="https://platform.visca.ai/docs/persistent-apps.html">
                                     <span>
                                         <QuestionCircleFilled />
                                     </span>

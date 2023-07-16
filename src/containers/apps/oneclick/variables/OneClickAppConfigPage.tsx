@@ -91,9 +91,9 @@ export default class OneClickAppConfigPage extends ApiComponent<
                 ) as IOneClickTemplate
             })
             .then(function (data: IOneClickTemplate) {
-                if (`${data.captainVersion}` !== '4') {
+                if (`${data.athenaVersion}` !== '4') {
                     message.error(
-                        `One-click app version is ${data.captainVersion}, this version supports "v4". Make sure your CapRover is up-to-date with the latest version!!`
+                        `One-click app version is ${data.athenaVersion}, this version supports "v4". Make sure your Athena is up-to-date with the latest version!!`
                     )
                     return
                 }
@@ -111,12 +111,12 @@ export default class OneClickAppConfigPage extends ApiComponent<
 
                 apiData = data
 
-                return self.apiManager.getCaptainInfo()
+                return self.apiManager.getAthenaInfo()
             })
-            .then(function (captainInfo) {
+            .then(function (athenaInfo) {
                 self.setState({
                     apiData: apiData,
-                    rootDomain: captainInfo.rootDomain,
+                    rootDomain: athenaInfo.rootDomain,
                 })
             })
             .catch(Toaster.createCatcher())
@@ -184,7 +184,7 @@ export default class OneClickAppConfigPage extends ApiComponent<
                                     template.caproverOneClickApp.variables.push(
                                         {
                                             id: ONE_CLICK_ROOT_DOMAIN_VAR_NAME,
-                                            label: 'CapRover root domain',
+                                            label: 'Athena root domain',
                                         }
                                     )
                                     valuesAugmented[

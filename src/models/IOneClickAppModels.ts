@@ -26,7 +26,7 @@ export interface IDockerComposeService {
     depends_on?: string[]
     hostname?: string
 
-    // These are CapRover property, not DockerCompose. We use this instead of image if we need to extend the image.
+    // These are Athena property, not DockerCompose. We use this instead of image if we need to extend the image.
     caproverExtra?: {
         dockerfileLines?: string[]
         containerHttpPort: number
@@ -36,7 +36,7 @@ export interface IDockerComposeService {
 
 export interface IOneClickTemplate {
     services: IHashMapGeneric<IDockerComposeService>
-    captainVersion: number
+    athenaVersion: number
     caproverOneClickApp: {
         instructions: {
             start: string

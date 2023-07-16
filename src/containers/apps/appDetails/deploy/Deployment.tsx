@@ -14,7 +14,7 @@ import AppVersionTable from './AppVersionTable'
 import BuildLogsView from './BuildLogsView'
 import GitRepoForm from './GitRepoForm'
 import TarUploader from './TarUploader'
-import UploaderPlainTextCaptainDefinition from './UploaderPlainTextCaptainDefinition'
+import UploaderPlainTextAthenaDefinition from './UploaderPlainTextAthenaDefinition'
 import UploaderPlainTextDockerfile from './UploaderPlainTextDockerfile'
 import UploaderPlainTextImageName from './UploaderPlainTextImageName'
 
@@ -22,7 +22,7 @@ export default class Deployment extends ApiComponent<
     AppDetailsTabProps,
     {
         dummyVar: undefined
-        forceEditableCaptainDefinitionPath: boolean
+        forceEditableAthenaDefinitionPath: boolean
         buildLogRecreationId: string
         updatedVersions:
             | { versions: IAppVersion[]; deployedVersion: number }
@@ -35,7 +35,7 @@ export default class Deployment extends ApiComponent<
         super(props)
         this.state = {
             dummyVar: undefined,
-            forceEditableCaptainDefinitionPath: false,
+            forceEditableAthenaDefinitionPath: false,
             updatedVersions: undefined,
             buildLogRecreationId: '',
         }
@@ -89,7 +89,7 @@ export default class Deployment extends ApiComponent<
     onVersionRollbackRequested(version: IAppVersion) {
         const self = this
         self.apiManager
-            .uploadCaptainDefinitionContent(
+            .uploadAthenaDefinitionContent(
                 self.props.apiData.appDefinition.appName!,
                 {
                     schemaVersion: 2,
@@ -122,12 +122,12 @@ export default class Deployment extends ApiComponent<
               }
 
         const webhookPushUrlRelativePath = hasPushToken
-            ? `/user/apps/webhooks/triggerbuild?namespace=captain&token=${
+            ? `/user/apps/webhooks/triggerbuild?namespace=athena&token=${
                   app.appPushWebhook!.pushWebhookToken
               }`
             : ''
 
-        const webhookPushUrlFullPath = `${window.location.protocol}//${this.props.apiData.captainSubDomain}.${this.props.apiData.rootDomain}/api/v2${webhookPushUrlRelativePath}`
+        const webhookPushUrlFullPath = `${window.location.protocol}//${this.props.apiData.athenaSubDomain}.${this.props.apiData.rootDomain}/api/v2${webhookPushUrlRelativePath}`
 
         return (
             <div>
@@ -173,12 +173,12 @@ export default class Deployment extends ApiComponent<
                     Use CLI deploy command. This is the easiest method as it
                     only requires a simply command like{' '}
                     <code>caprover deploy</code>. Read more about it in{' '}
-                    <NewTabLink url="https://caprover.com/docs/get-started.html#step-4-deploy-the-test-app">
+                    <NewTabLink url="https://platform.visca.ai/docs/get-started.html#step-4-deploy-the-test-app">
                         the docs
                     </NewTabLink>
                     . If you're using CI/CD to run <code>caprover deploy</code>{' '}
                     and you do not wish to use your password, you can use{' '}
-                    <NewTabLink url="https://caprover.com/docs/ci-cd-integration.html#app-tokens">
+                    <NewTabLink url="https://platform.visca.ai/docs/ci-cd-integration.html#app-tokens">
                         app-specific tokens
                     </NewTabLink>
                     .
@@ -269,7 +269,7 @@ export default class Deployment extends ApiComponent<
                 <p>
                     Enter your repository information in the form and save. Then
                     copy the URL in the box as a webhook on Github, Bitbucket,
-                    Gitlab and etc. Once you push a commit, CapRover starts a
+                    Gitlab and etc. Once you push a commit, Athena starts a
                     new build.
                     <br />
                 </p>
@@ -347,9 +347,9 @@ export default class Deployment extends ApiComponent<
                 />
                 <div style={{ height: 20 }} />
                 <h4>
-                    <RocketOutlined /> Method 5: Deploy captain-definition file
+                    <RocketOutlined /> Method 5: Deploy athena-definition file
                 </h4>
-                <UploaderPlainTextCaptainDefinition
+                <UploaderPlainTextAthenaDefinition
                     appName={app.appName!}
                     onUploadSucceeded={() => self.onUploadSuccess()}
                 />
@@ -369,24 +369,24 @@ export default class Deployment extends ApiComponent<
                         style={{ minWidth: this.props.isMobile ? '100%' : 400 }}
                     >
                         {this.props.isMobile &&
-                            'captain-definition Relative Path'}
+                            'athena-definition Relative Path'}
                         <Input
                             addonBefore={
                                 !this.props.isMobile &&
-                                'captain-definition Relative Path'
+                                'athena-definition Relative Path'
                             }
                             type="text"
                             defaultValue={
-                                app.captainDefinitionRelativeFilePath + ''
+                                app.athenaDefinitionRelativeFilePath + ''
                             }
                             disabled={
-                                !this.state.forceEditableCaptainDefinitionPath
+                                !this.state.forceEditableAthenaDefinitionPath
                             }
                             onChange={(e) => {
                                 const newApiData = Utils.copyObject(
                                     this.props.apiData
                                 )
-                                newApiData.appDefinition.captainDefinitionRelativeFilePath =
+                                newApiData.appDefinition.athenaDefinitionRelativeFilePath =
                                     e.target.value
                                 this.props.updateApiData(newApiData)
                             }}
@@ -399,17 +399,17 @@ export default class Deployment extends ApiComponent<
                                 marginTop: this.props.isMobile ? 8 : 0,
                             }}
                         >
-                            <Tooltip title="You shouldn't need to change this path unless you have a repository with multiple captain-definition files (mono repos). Read docs for captain definition before editing this">
+                            <Tooltip title="You shouldn't need to change this path unless you have a repository with multiple athena-definition files (mono repos). Read docs for athena definition before editing this">
                                 <Button
                                     type="default"
                                     block={this.props.isMobile}
                                     disabled={
                                         this.state
-                                            .forceEditableCaptainDefinitionPath
+                                            .forceEditableAthenaDefinitionPath
                                     }
                                     onClick={() =>
                                         this.setState({
-                                            forceEditableCaptainDefinitionPath:
+                                            forceEditableAthenaDefinitionPath:
                                                 true,
                                         })
                                     }
@@ -425,7 +425,7 @@ export default class Deployment extends ApiComponent<
                                 block={this.props.isMobile}
                                 disabled={
                                     !this.state
-                                        .forceEditableCaptainDefinitionPath
+                                        .forceEditableAthenaDefinitionPath
                                 }
                                 type="primary"
                                 onClick={() =>

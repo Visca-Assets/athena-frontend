@@ -23,7 +23,7 @@ export default abstract class UploaderPlainTextBase extends ApiComponent<
 
     protected abstract getPlaceHolderValue(): string
 
-    protected abstract convertDataToCaptainDefinition(
+    protected abstract convertDataToAthenaDefinition(
         userEnteredValue: string
     ): string
 
@@ -31,15 +31,15 @@ export default abstract class UploaderPlainTextBase extends ApiComponent<
         return false
     }
 
-    startDeploy(captainDefinitionToBeUploaded: string) {
+    startDeploy(athenaDefinitionToBeUploaded: string) {
         const self = this
 
         Promise.resolve() //
             .then(function () {
                 self.setState({ uploadInProcess: true })
-                return self.apiManager.uploadCaptainDefinitionContent(
+                return self.apiManager.uploadAthenaDefinitionContent(
                     self.props.appName,
-                    JSON.parse(captainDefinitionToBeUploaded),
+                    JSON.parse(athenaDefinitionToBeUploaded),
                     '',
                     true
                 )
@@ -101,7 +101,7 @@ export default abstract class UploaderPlainTextBase extends ApiComponent<
                         type="primary"
                         onClick={() =>
                             self.startDeploy(
-                                self.convertDataToCaptainDefinition(
+                                self.convertDataToAthenaDefinition(
                                     self.state.userEnteredValue
                                 )
                             )

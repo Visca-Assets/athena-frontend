@@ -1,4 +1,4 @@
-export interface ICaptainDefinition {
+export interface IAthenaDefinition {
     schemaVersion: number
     dockerfileLines?: string[]
     imageName?: string

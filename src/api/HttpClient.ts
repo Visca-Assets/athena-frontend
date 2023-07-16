@@ -2,9 +2,9 @@ import axios from 'axios'
 import ErrorFactory from '../utils/ErrorFactory'
 import Logger from '../utils/Logger'
 
-let TOKEN_HEADER = 'x-captain-auth'
+let TOKEN_HEADER = 'x-athena-auth'
 let NAMESPACE = 'x-namespace'
-let CAPTAIN = 'captain'
+let CAPTAIN = 'athena'
 
 export default class HttpClient {
     public readonly GET = 'GET'

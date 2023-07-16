@@ -30,7 +30,7 @@ export default class OneClickGrid extends Component<
     }
 
     create3rdPartyTagIfNeeded(app: IOneClickAppIdentifier) {
-        const MAIN_REPO = `https://oneclickapps.caprover.com`
+        const MAIN_REPO = `https://oneclickapps.platform.visca.ai`
 
         const isFromMainRepository = app.baseUrl === MAIN_REPO || !app.baseUrl
         const isUsingOfficialImage = !!app.isOfficial
@@ -179,7 +179,7 @@ export default class OneClickGrid extends Component<
                             <div style={{ paddingTop: 30 }}>
                                 What if the app/database I want is not listed
                                 here? &nbsp;
-                                <NewTabLink url="https://caprover.com/docs/one-click-apps.html#what-about-other-apps">
+                                <NewTabLink url="https://platform.visca.ai/docs/one-click-apps.html#what-about-other-apps">
                                     <InfoCircleOutlined />
                                 </NewTabLink>
                             </div>

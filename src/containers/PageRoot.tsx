@@ -214,7 +214,7 @@ class PageRoot extends ApiComponent<
                                                     marginRight: 10,
                                                 }}
                                             />
-                                            CapRover
+                                            Athena
                                             {self.createUpdateAvailableIfNeeded()}
                                         </h3>
                                     </div>
@@ -223,7 +223,7 @@ class PageRoot extends ApiComponent<
                             {!self.props.isMobile && (
                                 <Col span={12}>
                                     <Row justify="end">
-                                        <NewTabLink url="https://github.com/caprover/caprover">
+                                        <NewTabLink url="https://github.com/visca-ai">
                                             <span style={{ marginRight: 20 }}>
                                                 GitHub
                                             </span>
@@ -234,7 +234,7 @@ class PageRoot extends ApiComponent<
                                                 marginRight: 70,
                                             }}
                                         >
-                                            <NewTabLink url="https://caprover.com">
+                                            <NewTabLink url="https://platform.visca.ai">
                                                 Docs
                                             </NewTabLink>
                                         </span>
@@ -312,7 +312,7 @@ class PageRoot extends ApiComponent<
                                         role="menuitem"
                                         style={{ paddingLeft: 24 }}
                                     >
-                                        <NewTabLink url="https://github.com/caprover/caprover">
+                                        <NewTabLink url="https://github.com/visca-ai">
                                             <GithubOutlined />
                                             GitHub
                                         </NewTabLink>
@@ -323,7 +323,7 @@ class PageRoot extends ApiComponent<
                                         role="menuitem"
                                         style={{ paddingLeft: 24 }}
                                     >
-                                        <NewTabLink url="https://caprover.com">
+                                        <NewTabLink url="https://platform.visca.ai">
                                             <FileTextOutlined />
                                             Docs
                                         </NewTabLink>

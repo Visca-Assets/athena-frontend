@@ -1,4 +1,4 @@
-import { ICaptainDefinition } from '../../../../models/ICaptainDefinition'
+import { IAthenaDefinition } from '../../../../models/IAthenaDefinition'
 import UploaderPlainTextBase from './UploaderPlainTextBase'
 
 export default class UploaderPlainTextDockerfile extends UploaderPlainTextBase {
@@ -9,8 +9,8 @@ FROM mysql:5.7
 ENV MYSQL_DATABASE company`
     }
 
-    protected convertDataToCaptainDefinition(userEnteredValue: string) {
-        const capDefinition: ICaptainDefinition = {
+    protected convertDataToAthenaDefinition(userEnteredValue: string) {
+        const capDefinition: IAthenaDefinition = {
             schemaVersion: 2,
             dockerfileLines: userEnteredValue.trim().split('\n'),
         }

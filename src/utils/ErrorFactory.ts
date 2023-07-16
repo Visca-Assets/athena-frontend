@@ -26,8 +26,8 @@ class ErrorFactory {
 
     createError(status: number, message: string) {
         let e = new Error(message || 'null') as any
-        e.captainStatus = status
-        e.captainMessage = message
+        e.athenaStatus = status
+        e.athenaMessage = message
         return e
     }
 

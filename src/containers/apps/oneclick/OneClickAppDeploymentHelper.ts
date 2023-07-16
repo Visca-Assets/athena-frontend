@@ -1,5 +1,5 @@
 import ApiManager from '../../../api/ApiManager'
-import { ICaptainDefinition } from '../../../models/ICaptainDefinition'
+import { IAthenaDefinition } from '../../../models/IAthenaDefinition'
 import { IDockerComposeService } from '../../../models/IOneClickAppModels'
 import DockerComposeToServiceOverride from '../../../utils/DockerComposeToServiceOverride'
 import Utils from '../../../utils/Utils'
@@ -120,20 +120,20 @@ export default class OneClickAppDeploymentHelper {
     ) {
         const self = this
         return Promise.resolve().then(function () {
-            let captainDefinition: ICaptainDefinition = {
+            let athenaDefinition: IAthenaDefinition = {
                 schemaVersion: 2,
             }
 
             if (dockerComposeService.image) {
-                captainDefinition.imageName = dockerComposeService.image
+                athenaDefinition.imageName = dockerComposeService.image
             } else {
-                captainDefinition.dockerfileLines =
+                athenaDefinition.dockerfileLines =
                     dockerComposeService.caproverExtra?.dockerfileLines
             }
 
-            return self.apiManager.uploadCaptainDefinitionContent(
+            return self.apiManager.uploadAthenaDefinitionContent(
                 appName,
-                captainDefinition,
+                athenaDefinition,
                 '',
                 false
             )

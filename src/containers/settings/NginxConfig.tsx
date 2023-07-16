@@ -6,7 +6,7 @@ import Utils from '../../utils/Utils'
 import ApiComponent from '../global/ApiComponent'
 import CenteredSpinner from '../global/CenteredSpinner'
 import ErrorRetry from '../global/ErrorRetry'
-import ReloadCaptainModal from './ReloadCaptainModal'
+import ReloadAthenaModal from './ReloadAthenaModal'
 
 export default class NginxConfig extends ApiComponent<
     {
@@ -44,8 +44,8 @@ export default class NginxConfig extends ApiComponent<
     onLoadDefaultNginxConfigClicked() {
         const newApiData = Utils.copyObject(this.state.nginxConfig)
         newApiData.baseConfig.customValue = newApiData.baseConfig.byDefault
-        newApiData.captainConfig.customValue =
-            newApiData.captainConfig.byDefault
+        newApiData.athenaConfig.customValue =
+            newApiData.athenaConfig.byDefault
         this.setState({ nginxConfig: newApiData })
     }
 
@@ -57,7 +57,7 @@ export default class NginxConfig extends ApiComponent<
         this.apiManager
             .setNginxConfig(
                 newApiData.baseConfig.customValue,
-                newApiData.captainConfig.customValue
+                newApiData.athenaConfig.customValue
             )
             .then(function () {
                 self.setState({ isRefreshTimerActivated: true })
@@ -82,11 +82,11 @@ export default class NginxConfig extends ApiComponent<
 
         return (
             <div>
-                <ReloadCaptainModal
+                <ReloadAthenaModal
                     isRefreshTimerActivated={self.state.isRefreshTimerActivated}
                 >
                     <div>
-                        Nginx is successfully updated, CapRover will restart in
+                        Nginx is successfully updated, Athena will restart in
                         30 seconds.{' '}
                         <b>
                             Please wait until the page is automatically
@@ -95,9 +95,9 @@ export default class NginxConfig extends ApiComponent<
                         <br />
                         <br />
                     </div>
-                </ReloadCaptainModal>{' '}
+                </ReloadAthenaModal>{' '}
                 <p>
-                    CapRover allows you to set custom configurations for your
+                    Athena allows you to set custom configurations for your
                     nginx router. This will allow high customization level in
                     terms of caching, special routing, http2 and etc.
                 </p>
@@ -114,7 +114,7 @@ export default class NginxConfig extends ApiComponent<
                 <div
                     className={
                         nginxConfig.baseConfig.customValue ||
-                        nginxConfig.captainConfig.customValue
+                        nginxConfig.athenaConfig.customValue
                             ? ''
                             : 'hide-on-demand'
                     }
@@ -133,13 +133,13 @@ export default class NginxConfig extends ApiComponent<
                     <div style={{ height: 40 }} />
                 </div>
                 <p>
-                    <b>CapRover Config Location in nginx container</b>:
-                    /etc/nginx/conf.d/captain-root.conf
+                    <b>Athena Config Location in nginx container</b>:
+                    /etc/nginx/conf.d/athena-root.conf
                 </p>
                 <div
                     className={
                         nginxConfig.baseConfig.customValue ||
-                        nginxConfig.captainConfig.customValue
+                        nginxConfig.athenaConfig.customValue
                             ? ''
                             : 'hide-on-demand'
                     }
@@ -148,10 +148,10 @@ export default class NginxConfig extends ApiComponent<
                         className="code-input"
                         placeholder=""
                         rows={17}
-                        value={nginxConfig.captainConfig.customValue}
+                        value={nginxConfig.athenaConfig.customValue}
                         onChange={(e) => {
                             const newApiData = Utils.copyObject(nginxConfig)
-                            newApiData.captainConfig.customValue =
+                            newApiData.athenaConfig.customValue =
                                 e.target.value
                             self.setState({ nginxConfig: newApiData })
                         }}

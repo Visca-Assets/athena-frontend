@@ -50,7 +50,7 @@ class CurrentNodes extends ApiComponent<
                 nodeToAdd.remoteNodeIpAddress,
                 nodeToAdd.sshPort,
                 nodeToAdd.sshUser,
-                nodeToAdd.captainIpAddress
+                nodeToAdd.athenaIpAddress
             )
             .then(function () {
                 message.success('Node added successfully!')

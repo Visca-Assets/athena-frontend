@@ -21,19 +21,19 @@ export default class NetDataDescription extends Component {
                     NetData is fast and efficient, designed to permanently run
                     on all systems (physical &amp; virtual servers, containers,
                     IoT devices), without disrupting their core function. The
-                    current image of NetData embeded in CapRover uses a default
+                    current image of NetData embeded in Athena uses a default
                     configuration for
                     <NewTabLink url="https://docs.netdata.cloud/docs/anonymous-statistics/">
                         &nbsp;statistics
                     </NewTabLink>
-                    . You can recompile CapRover with a different customized
+                    . You can recompile Athena with a different customized
                     image if you'd like.
                 </p>
                 <p>
-                    CapRover provides a simple interface to enable NetData on
-                    your CapRover instance. Currently, CapRover only supports
+                    Athena provides a simple interface to enable NetData on
+                    your Athena instance. Currently, Athena only supports
                     installing NetData on your <b>leader node</b>, i.e., the
-                    node where CapRover instance resides. This limitation is due
+                    node where Athena instance resides. This limitation is due
                     to a limitation in Docker interface,
                     <NewTabLink url="https://github.com/moby/moby/issues/25885/">
                         {' '}

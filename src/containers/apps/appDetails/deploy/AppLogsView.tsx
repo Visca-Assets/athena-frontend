@@ -160,7 +160,7 @@ export default class AppLogsView extends ApiComponent<
                                         }}
                                     >
                                         <Tooltip title="View full application logs (not truncated)">
-                                            <NewTabLink url="https://caprover.com/docs/troubleshooting.html#how-to-view-my-applications-log">
+                                            <NewTabLink url="https://platform.visca.ai/docs/troubleshooting.html#how-to-view-my-applications-log">
                                                 <InfoCircleOutlined />
                                             </NewTabLink>
                                         </Tooltip>
