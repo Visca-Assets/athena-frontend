@@ -47,10 +47,10 @@ export default class OneClickAppDeployManager {
 
         for (
             let index = 0;
-            index < template.caproverOneClickApp.variables.length;
+            index < template.athenaOneClickApp.variables.length;
             index++
         ) {
-            const element = template.caproverOneClickApp.variables[index]
+            const element = template.athenaOneClickApp.variables[index]
             stringified = replaceWith(
                 element.id,
                 values[element.id] || '',
@@ -116,7 +116,7 @@ export default class OneClickAppDeployManager {
                             currentStep,
                             successMessage:
                                 currentStep >= stepsTexts.length
-                                    ? self.template!.caproverOneClickApp
+                                    ? self.template!.athenaOneClickApp
                                           .instructions.end
                                     : undefined,
                         })

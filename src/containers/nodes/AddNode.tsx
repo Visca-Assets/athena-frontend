@@ -227,7 +227,7 @@ export default class AddNode extends Component<
                                 </code>
                                 . See{' '}
                                 <a
-                                    href="https://github.com/caprover/caprover/issues/572"
+                                    href="https://github.com/visca-ai/athena/issues/572"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >

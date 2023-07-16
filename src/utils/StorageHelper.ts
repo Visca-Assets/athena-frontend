@@ -9,9 +9,9 @@ const sessionStorage = window.sessionStorage
     ? window.sessionStorage
     : fallbackNoOps
 
-const AUTH_KEY = 'CAPROVER_AUTH_KEY'
-const SIDER_COLLAPSED_STATE = 'CAPROVER_SIDER_COLLAPSED_STATE'
-const DARK_MODE = 'CAPROVER_DARK_MODE'
+const AUTH_KEY = 'ATHENA_AUTH_KEY'
+const SIDER_COLLAPSED_STATE = 'ATHENA_SIDER_COLLAPSED_STATE'
+const DARK_MODE = 'ATHENA_DARK_MODE'
 class StorageHelper {
     getAuthKeyFromStorage() {
         const localStorageAuth = localStorage.getItem(AUTH_KEY)

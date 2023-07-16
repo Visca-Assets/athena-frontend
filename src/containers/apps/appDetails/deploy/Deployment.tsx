@@ -172,11 +172,11 @@ export default class Deployment extends ApiComponent<
                 <p>
                     Use CLI deploy command. This is the easiest method as it
                     only requires a simply command like{' '}
-                    <code>caprover deploy</code>. Read more about it in{' '}
+                    <code>athena deploy</code>. Read more about it in{' '}
                     <NewTabLink url="https://platform.visca.ai/docs/get-started.html#step-4-deploy-the-test-app">
                         the docs
                     </NewTabLink>
-                    . If you're using CI/CD to run <code>caprover deploy</code>{' '}
+                    . If you're using CI/CD to run <code>athena deploy</code>{' '}
                     and you do not wish to use your password, you can use{' '}
                     <NewTabLink url="https://platform.visca.ai/docs/ci-cd-integration.html#app-tokens">
                         app-specific tokens

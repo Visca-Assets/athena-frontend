@@ -10,7 +10,7 @@ export default class DockerComposeToServiceOverride {
         // restart_policy is not generally needed, by default docker services restart automatically
         // ----
         // Only parse parameters that are not from the aforementioned list.
-        // The only useful parameter that we are parsing at the moment is hostname: https://github.com/caprover/caprover/issues/404
+        // The only useful parameter that we are parsing at the moment is hostname: https://github.com/visca-ai/athena/issues/404
 
         const overrides = [] as any[]
         overrides.push(DockerComposeToServiceOverride.parseHostname(compose))

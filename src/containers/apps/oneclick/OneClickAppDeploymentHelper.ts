@@ -93,16 +93,16 @@ export default class OneClickAppDeploymentHelper {
                         appDef.serviceUpdateOverride = overrideYaml
                     }
 
-                    if (!!dockerComposeService.caproverExtra) {
+                    if (!!dockerComposeService.athenaExtra) {
                         if (
-                            dockerComposeService.caproverExtra.containerHttpPort
+                            dockerComposeService.athenaExtra.containerHttpPort
                         ) {
                             appDef.containerHttpPort =
-                                dockerComposeService.caproverExtra.containerHttpPort
+                                dockerComposeService.athenaExtra.containerHttpPort
                         }
 
                         if (
-                            !!dockerComposeService.caproverExtra
+                            !!dockerComposeService.athenaExtra
                                 .notExposeAsWebApp
                         ) {
                             appDef.notExposeAsWebApp = true
@@ -128,7 +128,7 @@ export default class OneClickAppDeploymentHelper {
                 athenaDefinition.imageName = dockerComposeService.image
             } else {
                 athenaDefinition.dockerfileLines =
-                    dockerComposeService.caproverExtra?.dockerfileLines
+                    dockerComposeService.athenaExtra?.dockerfileLines
             }
 
             return self.apiManager.uploadAthenaDefinitionContent(

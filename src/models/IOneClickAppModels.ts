@@ -27,7 +27,7 @@ export interface IDockerComposeService {
     hostname?: string
 
     // These are Athena property, not DockerCompose. We use this instead of image if we need to extend the image.
-    caproverExtra?: {
+    athenaExtra?: {
         dockerfileLines?: string[]
         containerHttpPort: number
         notExposeAsWebApp: boolean // This is actually a string "true", make sure to double negate!
@@ -37,7 +37,7 @@ export interface IDockerComposeService {
 export interface IOneClickTemplate {
     services: IHashMapGeneric<IDockerComposeService>
     athenaVersion: number
-    caproverOneClickApp: {
+    athenaOneClickApp: {
         instructions: {
             start: string
             end: string

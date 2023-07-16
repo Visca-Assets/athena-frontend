@@ -98,10 +98,10 @@ export default class OneClickAppConfigPage extends ApiComponent<
                     return
                 }
 
-                data.caproverOneClickApp.variables =
-                    data.caproverOneClickApp.variables || []
+                data.athenaOneClickApp.variables =
+                    data.athenaOneClickApp.variables || []
                 // Adding app name to all one click apps
-                data.caproverOneClickApp.variables.unshift({
+                data.athenaOneClickApp.variables.unshift({
                     id: ONE_CLICK_APP_NAME_VAR_NAME,
                     label: 'App Name',
                     description:
@@ -127,8 +127,8 @@ export default class OneClickAppConfigPage extends ApiComponent<
         const deploymentState = this.state.deploymentState
         const apiData = this.state.apiData
         const displayName =
-            apiData && apiData.caproverOneClickApp.displayName
-                ? apiData.caproverOneClickApp.displayName
+            apiData && apiData.athenaOneClickApp.displayName
+                ? apiData.athenaOneClickApp.displayName
                 : self.props.match.params.appName[0].toUpperCase() +
                   self.props.match.params.appName.slice(1)
 
@@ -164,7 +164,7 @@ export default class OneClickAppConfigPage extends ApiComponent<
                             >
                                 <ReactMarkdown remarkPlugins={[gfm]}>
                                     {
-                                        apiData.caproverOneClickApp.instructions
+                                        apiData.athenaOneClickApp.instructions
                                             .start
                                     }
                                 </ReactMarkdown>
@@ -172,7 +172,7 @@ export default class OneClickAppConfigPage extends ApiComponent<
                             <div style={{ height: 40 }} />
                             <OneClickVariablesSection
                                 oneClickAppVariables={
-                                    apiData.caproverOneClickApp.variables
+                                    apiData.athenaOneClickApp.variables
                                 }
                                 onNextClicked={(values) => {
                                     const template = Utils.copyObject(
@@ -181,7 +181,7 @@ export default class OneClickAppConfigPage extends ApiComponent<
                                     const valuesAugmented =
                                         Utils.copyObject(values)
 
-                                    template.caproverOneClickApp.variables.push(
+                                    template.athenaOneClickApp.variables.push(
                                         {
                                             id: ONE_CLICK_ROOT_DOMAIN_VAR_NAME,
                                             label: 'Athena root domain',
